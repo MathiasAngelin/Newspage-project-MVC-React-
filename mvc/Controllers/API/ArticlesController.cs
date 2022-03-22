@@ -8,7 +8,7 @@ namespace mvc.Controllers.API
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ArticleController : ControllerBase
+    public class ArticlesController : ControllerBase
     {
         [HttpGet]
         public IEnumerable<Article> ListAllArticles()
@@ -20,12 +20,12 @@ namespace mvc.Controllers.API
             {
                 articlelist.Add(new Article
                 {
+                    Id = (Guid)article.Id,
                     Title = article.Title,
                     Intro = article.Intro,
                     AuthorId = article.AuthorId,
                     ImageName = article.ImageName,
                     Pinned = article.Pinned,
-                    Blocks = (IEnumerable<Block>)article.Blocks
                 }); ;
             }
             return articlelist;
@@ -90,7 +90,7 @@ namespace mvc.Controllers.API
             }
         }
 
-      
+        
 
     }
 }

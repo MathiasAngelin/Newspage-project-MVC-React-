@@ -15,5 +15,10 @@ namespace mvc.Controllers
         {
             return View();
         }
+
+        public IActionResult News(string articleId, string articleTitle)
+        {
+            return View();
+        }
     }
 }

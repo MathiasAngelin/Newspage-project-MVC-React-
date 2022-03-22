@@ -23,11 +23,11 @@ namespace mvc.Controllers.API
         }
 
         [HttpPost]
-        public IActionResult CreateImage(IFormFile formFile)
+        public IActionResult CreateImage()
         {
             try
             {
-                ImageService.Instance.Upload(formFile);
+                ImageService.Instance.Upload(Request.Form.Files[0]);
                 return Ok();
             }
             catch (Exception ex)

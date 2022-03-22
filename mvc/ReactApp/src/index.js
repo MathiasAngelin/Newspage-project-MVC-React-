@@ -1,17 +1,27 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import App from './App';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
+import Articles from './routes/Articles';
+import Authors from './routes/Authors';
+import Images from './routes/Images';
+
 
 const baseUrl = "Admin";
 const rootElement = document.getElementById('root');
 
 ReactDOM.render(
   <BrowserRouter basename={baseUrl}>
-    <App />
+    <Routes>
+      <Route path="/" element={<App />}>
+      <Route path="Articles" element={<Articles />} />
+      <Route path="Authors" element={<Authors />} />
+      <Route path="Images" element={<Images />} />
+      </Route>
+    </Routes>
   </BrowserRouter>,
   rootElement);
 

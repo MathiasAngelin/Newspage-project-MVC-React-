@@ -8,7 +8,7 @@ namespace mvc.Controllers.API
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AuthorController : ControllerBase
+    public class AuthorsController : ControllerBase
     {
         [HttpGet]
         public IEnumerable<Author> ListAllAuthors()
