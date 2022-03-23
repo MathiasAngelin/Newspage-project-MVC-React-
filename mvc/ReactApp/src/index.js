@@ -5,8 +5,8 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import App from './App';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
-import Articles from './routes/Articles';
-import Authors from './routes/Authors';
+import {Articles} from './routes/Articles';
+import {Authors} from './routes/Authors';
 import Images from './routes/Images';
 
 

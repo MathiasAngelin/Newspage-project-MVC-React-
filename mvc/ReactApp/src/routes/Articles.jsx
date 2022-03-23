@@ -1,17 +1,19 @@
+import axios from "axios";
+import { useEffect,useState } from "react";
 import { Link } from "react-router-dom";
 
-function getArticles() {
-  fetch('https://localhost:7208/api/Articles')
-  .then((res) =>  res.json())
-  .then(output => {
-      let articles = output;
-      console.log(articles)
-  return articles;
-})
-}
+export function Articles() {
+const [articles, setAricles] = useState([]);
 
-export default function Articles() {
-  let articles = getArticles();
+useEffect(() => {
+  axios.get('https://localhost:7208/api/Articles')
+  .then((response) => {
+    let articles = response.data;
+    setAricles(articles)
+  });
+}, [])
+
+
   return (
     <div style={{ display: "flex" }}>
       <nav
@@ -21,13 +23,13 @@ export default function Articles() {
         }}
       >
         
-        {articles?.map((article) => (
+        {articles.map((article) => (
           <Link
             style={{ display: "block", margin: "1rem 0" }}
-            to={`/articles/${article.title}`}
-            key={article.title}
+            to={`/Articles/${article.title}`}
+            key={article.id}
           >
-            {article.name}
+            {article.title}
           </Link>
         ))}
       </nav>
