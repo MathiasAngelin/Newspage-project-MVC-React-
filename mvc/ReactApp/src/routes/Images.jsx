@@ -1,7 +1,8 @@
 export default function Images() {
     return (
-      <main style={{ padding: "1rem 0" }}>
-        <h2>Your images</h2>
-      </main>
+      <div className="images">
+        <h1>Bilder</h1>
+        <button className="button" id="createimagebutton">Skapa</button>
+      </div>
     );
   }

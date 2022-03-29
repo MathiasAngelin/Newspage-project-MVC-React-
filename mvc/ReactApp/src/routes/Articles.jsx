@@ -15,17 +15,12 @@ useEffect(() => {
 
 
   return (
-    <div style={{ display: "flex" }}>
-      <nav
-        style={{
-          borderRight: "solid 1px",
-          padding: "1rem",
-        }}
-      >
-        
+    <div className="articles">
+      <nav>
+        <h1>Artiklar</h1>
+        <button className="button" id="createarticlebutton">Skapa</button>
         {articles.map((article) => (
           <Link
-            style={{ display: "block", margin: "1rem 0" }}
             to={`/Articles/${article.title}`}
             key={article.id}
           >

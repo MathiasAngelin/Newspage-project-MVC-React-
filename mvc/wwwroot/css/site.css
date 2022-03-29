@@ -1,60 +1,209 @@
+/*#region ColorDisplay*/
+:root {
+    --vit: #FFFFFF;
+    --svart: #14342B;
+    --ljusgra:#E5E7E5;
+    --morkgra: #677967;
+    --primar: #548052;
+    --sekundar: #BBDFC5;
+    --danger: #805252;
+    font-family: Arial;
+}
+
+[data-theme="dark"] {
+    --vit: #E5E7E5;
+    --svart: #677967;
+    --ljusgra: #677967;
+    --morkgra: #E5E7E5;
+    --sekundar: #548052;
+    --danger: #805252;
+}
+
+
+/*#endregion ColorDisplay*/
+
+/*#region header*/
 header{
-    background-color: #548052;
-    color: #FFFFFF;
+    display: flex;
+    max-width: 990px;
+    justify-content:space-between;
+    background-color: var(--primar);
+    color: var(--vit);
     padding:5px
 }
 
-header h3{
-   margin-left: 40px;
-   
+    header h3 {
+        margin-left: 40px;
+    }
+
+.theme-switch-wrapper {
+    margin-right: 40px;
 }
 
+#colorslide {
+    visibility: hidden;
+    display: none;
+}
+/*#endregion header*/
 
-html {
-  font-size: 14px;
+/*#region slider*/
+.theme-switch-wrapper {
+    display: flex;
+    align-items: center;
+    em
+
+{
+    margin-left: 10px;
+    font-size: 1rem;
 }
 
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
 }
 
+.theme-switch {
+    display: inline-block;
+    height: 20px;
+    position: relative;
+    width: 30px;
+}
+
+    .theme-switch input {
+        display: none;
+    }
+
+.slider {
+    background-color: #ccc;
+    bottom: 0;
+    cursor: pointer;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: .4s;
+}
+
+    .slider:before {
+        background-color: #fff;
+        bottom: 4px;
+        content: "";
+        height: 13px;
+        left: 4px;
+        position: absolute;
+        transition: .4s;
+        width: 13px;
+    }
+
+input:checked + .slider {
+    background-color: #66bb6a;
+}
+
+    input:checked + .slider:before {
+        transform: translateX(10px);
+    }
+
+.slider.round {
+    border-radius: 34px;
+}
+
+    .slider.round:before {
+        border-radius: 50%;
+    }
+
+#colorslide:hover {
+    text-decoration: underline;
+}
+/*#endregion slider*/
+
+/*#region other*/
 html {
   position: relative;
   min-height: 100%;
 }
+/*#endregion other*/
+
+/*#region body*/
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+    background-color: var(--ljusgra);
+  
 }
+/*#endregion body*/
 
-footer {
-   
+/*#region pinned*/
+
+#pinnedArticles {
+    margin-left: 50px;
+    margin-right: 50px;
     display: flex;
-    justify-content: center;
-    align-content:center;
-    background-color: #14342B;
-    color: #FFFFFF;
+    flex-wrap: wrap;
+}
+
+#pinnedArticles > div {
+    
+    border: solid;
+    margin: 2px;
+    height: 360px;
+    min-width: 320px;
+    max-width: 460px;
+}
+/*#endregion pinned*/
+/*#region footer*/
+footer {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 960px;
+    background-color: var(--svart);
+    color: var(--vit);
+    padding: 20px;
+    justify-content: space-around;
+    flex: 1 1 auto;
+    align-items: center;
     min-height: 140px;
-    padding-bottom:20px;
-   
+    padding-bottom: 20px;
 }
 
-#footer1{
-    min-width:150px;
-}
+    footer > div {
+        max-width: 460px;
+        min-width: 100px;
+        flex: 1 1 content;
+        align-self: flex-start;
+        align-content: center;
+    }
 
-#footer2{
-    max-width: 520px;
-    margin-left: 40px;
-   
-}
 
-footer p {
-    margin:0
-}
+    footer p {
+        margin: 0px;
+    }
 
-footer h3 {
-    margin-bottom: 2px
+/*#endregion footer*/
+
+/*#region mediumscreen*/
+@media screen and (max-width: 1024px) and (min-width: 700px) {
+    body {
+        
+    }
+    #colorslide {
+        display:block;
+        visibility: visible;
+    }
+    footer > div {
+        flex: 0 1 content;
+    }
 }
+/*#endregion mediumscreen*/
+
+/*#region bigscreen*/
+    @media screen and (min-width: 1025px) {
+        body {
+            
+        }
+        #colorslide {
+            display: block;
+            visibility: visible;
+        }
+        footer > div {
+            flex: 0 1 content;
+        }
+    }
+/*#endregion bigscreen*/
+

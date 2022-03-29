@@ -15,17 +15,13 @@ useEffect(() => {
 
 
   return (
-    <div style={{ display: "flex" }}>
-      <nav
-        style={{
-          borderRight: "solid 1px",
-          padding: "1rem",
-        }}
-      >
-        
+    <div className="authors">
+      <nav>
+      <h1>Journalister</h1>
+      <button className="button" id="createauthorbutton">Skapa</button>
         {authors.map((author) => (
+          
           <Link
-            style={{ display: "block", margin: "1rem 0" }}
             to={`/Authors/${author.firstName}`}
             key={author.id}
           >

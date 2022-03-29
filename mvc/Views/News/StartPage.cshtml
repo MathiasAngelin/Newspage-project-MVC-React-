@@ -1,25 +1,56 @@
-﻿@*
+﻿@using Service.Models
+@{
+    IEnumerable<ArticleSummaryDTO> pinned = ViewData["pinned"] as IEnumerable<ArticleSummaryDTO>;
+}
+
+
+@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
 }
 
 <header>
-     <h3>Blåatoppens dagblad</h3>   
+    <h3>Blåatoppens dagblad</h3>
+    <div class="theme-switch-wrapper">
+        <label class="theme-switch" for="checkbox">
+            <input type="checkbox" id="checkbox" />
+            <div class="slider round"></div>
+        </label>
+        <div id="colorslide">Byt tema</div>
+    </div>
 </header>
 
+<body>
+    <div id="pinnedArticleContainer">
+        <div id="pinnedArticles">
+            @{
+
+                foreach (var article in pinned)
+                {
+                    <div>@article.AuthorFirstName</div>
+                }
+            }
+        </div>
+    </div>
+</body>
+
 <footer>
-    <div class="footerobj" id="footer1">
-    <h3>Blåatoppens dagblad</h3>
-    <p>Bettorpsgatan 10</p>
-    <p>703 69 Örebro</p>
+    <div id="footer1" class="footerobj">
+        <h3>Blåatoppens dagblad</h3>
+        <p>Bettorpsgatan 10</p>
+        <p>703 69 Örebro</p>
+        <a id="admin" href="https://localhost:7208/Admin">Admin</a>
     </div>
     <div id="footer2" class="footerobj">
         <h3>Om oss</h3>
-        <p>There was nothing in the office but at couple of wooden chais and a deal table,
-            behind which sat a small man with a head that was eaven redder than mine.
-            He said a few words to each candidate as he came up, and then he always managed
-            to find som fault in them which would disquality them.
+        <p>
+            Dagstidningen Blåatoppens dagblad grundades 1821. Tidningen har under 100 år varit
+            den mest lästa tidningen i hela Blåatoppen. Ambitionen med tidningen har sedan dess
+            grundande varit att tillhandahålla medborgarna med nyhetsrapportering av den allra
+            högsta kvalitén. Blåatoppens dagblad finns i dag tillgänglig som papperstidning. etidning,
+            sajt, ljud-tidning och VR-upplevelse.
         </p>
     </div>
 </footer>
+

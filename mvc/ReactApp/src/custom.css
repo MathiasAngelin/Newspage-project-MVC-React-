@@ -1,1 +1,118 @@
+:root{
+    font-family: Arial;
+    --vit: #FFFFFF;
+    --svart: #14342B;
+    --ljusgra:#E5E7E5;
+    --morkgra: #677967;
+    --primar: #548052;
+    --sekundar: #BBDFC5;
+    --danger: #805252;
+}
 
+header{
+    display:flex;
+    background-color: var(--primar);
+    color: var(--vit);
+    padding:5px;
+    padding-top: 15px;
+    align-content: center;
+}
+
+header > p {
+    margin-left: 100px;
+}
+
+body{
+    background-color: var(--ljusgra);
+    justify-items: center;
+}
+
+.mainbody{
+    padding: 30px 100px 30px 100px;
+    display:flex;
+    align-items: stretch;
+}
+
+
+nav{
+    padding-top: 25px;
+    height: 100%;
+    min-width: 200px;
+    width: 100%;
+}
+
+#firstLink
+{
+    margin-top: 45px;
+}
+
+.sidemenu{
+    background-color: var(--primar);
+}
+
+.sidemenu a {
+    color: black;
+    text-decoration: none;
+
+}
+
+.sidemenu p {
+    background-color: white;
+    margin-left: 30px;
+    padding: 10px;
+    padding-left: 20px;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    
+}
+
+nav a {
+    width: 100%;
+}
+
+.outlet{
+    min-width: 1000px;
+    max-width: 1000px;
+    background-color: white;
+}
+
+footer{
+    background-color: var(--svart);
+    color: var(--svart);
+    padding: 20px;
+}
+
+.articles , .authors , .images{
+    display: flex;
+    padding-left: 15px;
+   
+}
+
+.articles a, .authors a{
+    display: block;
+    padding: 15px;
+}
+
+.articles h1, .authors h1, .images h1{
+    border-bottom: solid;
+    border-color: var(--primar);
+}
+
+.articles a:nth-child(odd) , .authors a:nth-child(odd){
+    background-color: var(--ljusgra);
+}
+
+#createarticlebutton , #createauthorbutton, #createimagebutton{
+    position: absolute;
+    top: 105px;
+    left: 1200px;
+}
+
+.button{
+    background-color: var(--primar);
+    color: var(--vit);
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 15px;
+}
