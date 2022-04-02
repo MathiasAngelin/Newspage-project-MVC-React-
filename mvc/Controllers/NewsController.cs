@@ -19,16 +19,12 @@ namespace mvc.Controllers
         {
            
             var pinnedArticles = Service.Services.ArticleService.Instance.GetPinnedArticles();
+            var latestArticles = Service.Services.ArticleService.Instance.GetLatestArticles(5);
+            ViewData["latest"] = latestArticles;
             ViewData["pinned"] = pinnedArticles;
             return View();
         }
 
-        //[HttpGet]
-        //public IActionResult GetPinned()
-        //{
-        //    var pinnedArticles = Service.Services.ArticleService.Instance.GetPinnedArticles();
-        //    return View(pinnedArticles);
-        //}
 
         [HttpGet("news/{Id:Guid}-{articleName}")]
         public IActionResult News(string articleId, string articleTitle)

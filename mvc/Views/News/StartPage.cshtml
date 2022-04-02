@@ -1,6 +1,7 @@
 ﻿@using Service.Models
 @{
     IEnumerable<ArticleSummaryDTO> pinned = ViewData["pinned"] as IEnumerable<ArticleSummaryDTO>;
+    IEnumerable<ArticleSummaryDTO> latest = ViewData["latest"] as IEnumerable<ArticleSummaryDTO>;
 }
 
 
@@ -22,28 +23,75 @@
 </header>
 
 <body>
-    <div id="pinnedArticleContainer">
+    <div id="maincontainer">
         <div id="pinnedArticles">
             @{
 
                 foreach (var article in pinned)
                 {
-                    <div>@article.AuthorFirstName</div>
+                    <a id="articleCardsLink" href=https:\\www.google.com>
+                        <div class="articleCards">
+                            <img src="~/images/@article.ImageName" class="articlePic" alt="image" />
+                            <p class="articleTime">@article.Created</p>
+                            <p class="articleTitle">@article.Title</p>
+                            <p class="articleAuthor"> – @article.AuthorFirstName.ToUpper() @article.AuthorLastName.ToUpper()</p>
+                        </div>
+                    </a>
                 }
             }
+        </div>
+        <div id="pinnedArticles">
+            @{
+                Random rnd = new Random();
+                int rand = rnd.Next(1, 4);
+
+
+                <a id="articleAdsLink" href=https://www.buyawesomestuff.com target="_blank">
+                    <picture>
+                        <source media="(min-width: 300px) and (max-width: 320px)" srcset="~/ads/reklam-@rand-portrait-320w.png">
+                        <source media="(min-width: 321px) and (max-width: 470px)" srcset="~/ads/reklam-@rand-landscape-470w.png">
+                         <source media="(min-width: 471px) and (max-width: 640px)" srcset="~/ads/reklam-@rand-portrait-640w.png">
+                        <source media="(min-width: 641px) and (max-width: 940px)" srcset="~/ads/reklam-@rand-landscape-940w.png">
+                        <source media="(min-width: 940px)" srcset="~/ads/reklam-@rand-landscape-1880w.png">
+                        <img src="~/ads/reklam-@rand-landscape-1880w.png" class="adsPic" alt=image>
+                    </picture>
+                </a>
+            }
+        </div>
+         <div id="pinnedArticles">
+        <div class="latestNews">
+            <h2>De senaste nyheterna</h2>
+                @{
+                    foreach(var article in latest)
+                    {
+                        <div class="latestArticleCard">
+                        <p id="latestdate">@(article.Created.Value.Date==DateTime.Today.Date ? article.Created.Value.ToString(@"H:mm"):
+                        article.Created.Value.ToString(@"H:mm")+ 
+                        "\n" + 
+                        article.Created.Value.ToString(@"dd/MM") 
+                        )</p>
+                        <div class="latesttitle">
+                        <p class="latesttitletitle">@(article.Title.Length>25 ? @article.Title.Substring(0, 25)+"...":@article.Title)</p>
+                        <p>@(article.Intro.Length>35 ? @article.Intro.Substring(0, 35)+"...":@article.Intro)</p>
+                        </div>
+                        <button id="latestbutton">Läs mer  <i class="fa-solid fa-arrow-right"></i></button>
+                        </div>
+                    }
+                }
+        </div>
         </div>
     </div>
 </body>
 
 <footer>
     <div id="footer1" class="footerobj">
-        <h3>Blåatoppens dagblad</h3>
+        <h2>Blåatoppens dagblad</h2>
         <p>Bettorpsgatan 10</p>
         <p>703 69 Örebro</p>
         <a id="admin" href="https://localhost:7208/Admin">Admin</a>
     </div>
     <div id="footer2" class="footerobj">
-        <h3>Om oss</h3>
+        <h2>Om oss</h2>
         <p>
             Dagstidningen Blåatoppens dagblad grundades 1821. Tidningen har under 100 år varit
             den mest lästa tidningen i hela Blåatoppen. Ambitionen med tidningen har sedan dess
