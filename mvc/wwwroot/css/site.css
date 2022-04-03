@@ -47,6 +47,7 @@ header {
     color: white;
     padding: 5px;
     max-width: 2000px;
+    flex-shrink: 1;
 }
 
 header h3{
@@ -153,6 +154,15 @@ body {
 /*#endregion body*/
 
 /*#region pinned*/
+
+#adsAndLatestNew {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
+    justify-content: center;
+    gap: 20px;
+}
+
 #articleCardsLink {
     text-decoration: none;
 }
@@ -165,6 +175,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
+    max-width: 1200px;
 }
 
 .articleCards {
@@ -175,7 +186,7 @@ body {
     margin: 2px;
     height: 360px;
     min-width: 320px;
-    max-width: 460px;
+    max-width: 320px;
     transition: transform .1s;
     box-shadow: 1px 1px;
 }
@@ -221,9 +232,20 @@ body {
 .adsPic {
     justify-content: center;
     align-content: center;
-    flex: 1 1 auto;
-    max-width: 460px;
+  flex-shrink: 1;
     margin-left: auto;
+}
+
+#pinnedAds {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    justify-content: center;
+    align-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 320px;
+    flex-shrink: 1;
 }
 
 /*#endregion ads*/
@@ -235,8 +257,10 @@ body {
     color: var(--timeauthor);
     width: 100%;
     max-width: 460px;
+    min-width: 360px;
     display: flex;
     flex-wrap: wrap;
+    flex-shrink: 4;
 }
 
     .latestNews h2 {
@@ -253,6 +277,7 @@ body {
     height: 150px;
     border-bottom: solid var(--primar);
     width: 100%;
+    
     margin-bottom: 10px;
     display: grid;
     align-items: start;
@@ -350,10 +375,10 @@ footer {
     }
 
     .latestArticleCard {
-        height: 100px;
+        height: 80px;
         align-items: center;
         justify-items: center;
-        grid-template-columns: 40px auto 100px;
+        grid-template-columns: 65px auto 100px;
         grid-template-rows: auto;
         grid-template-areas:
             "date article read"
@@ -390,7 +415,7 @@ footer {
     }
 
     .adsPic {
-        max-width: 100%
+       
     }
 
     .latestNews {
@@ -413,11 +438,14 @@ footer {
         flex: 0 1 content;
     }
 
+   
+
     .latestArticleCard {
-        height: 100px;
+        height: 70px;
+        max-width: 500px;
         align-items: center;
         justify-items: center;
-        grid-template-columns: 30px auto 100px;
+        grid-template-columns: 65px auto 10px;
         grid-template-rows: auto;
         grid-template-areas:
             "date article read"
@@ -446,19 +474,24 @@ footer {
         justify-self: flex-start;
         margin-left: 40px;
         flex-shrink: 1;
+        width:500px
     }
+
 
     .latestNews > * {
         margin-left: 20px;
         margin-right: 20px;
     }
 
-    .adsPic {
-        max-width: 100%
-    }
+    .adsPic h2{
+        max-width:500px;
+    } 
 
     .latestNews {
-        max-width: 1880px;
+        max-width: 700px;
+        margin-top: 10px;
+        height: 510px;
+        
     }
 }
 

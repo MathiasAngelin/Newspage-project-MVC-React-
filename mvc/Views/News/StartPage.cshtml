@@ -40,45 +40,49 @@
                 }
             }
         </div>
-        <div id="pinnedArticles">
-            @{
-                Random rnd = new Random();
-                int rand = rnd.Next(1, 4);
-
-
-                <a id="articleAdsLink" href=https://www.buyawesomestuff.com target="_blank">
-                    <picture>
-                        <source media="(min-width: 300px) and (max-width: 320px)" srcset="~/ads/reklam-@rand-portrait-320w.png">
-                        <source media="(min-width: 321px) and (max-width: 470px)" srcset="~/ads/reklam-@rand-landscape-470w.png">
-                         <source media="(min-width: 471px) and (max-width: 640px)" srcset="~/ads/reklam-@rand-portrait-640w.png">
-                        <source media="(min-width: 641px) and (max-width: 940px)" srcset="~/ads/reklam-@rand-landscape-940w.png">
-                        <source media="(min-width: 940px)" srcset="~/ads/reklam-@rand-landscape-1880w.png">
-                        <img src="~/ads/reklam-@rand-landscape-1880w.png" class="adsPic" alt=image>
-                    </picture>
-                </a>
-            }
-        </div>
-         <div id="pinnedArticles">
-        <div class="latestNews">
-            <h2>De senaste nyheterna</h2>
+        <div id="adsAndLatestNew">
+            <div id="pinnedAds">
+                 @*<source media="(min-width: 471px) and (max-width: 640px)" srcset="~/ads/reklam-@rand-portrait-640w.png">*@
                 @{
-                    foreach(var article in latest)
+                    Random rnd = new Random();
+                    int rand = rnd.Next(1, 4);
+
+                    <a id="articleAdsLink" href=https://www.buyawesomestuff.com target="_blank">
+                        <picture>
+                            <source media="(min-width: 300px) and (max-width: 470px)" srcset="~/ads/reklam-@rand-portrait-320w.png">
+                            <source media="(min-width: 471px) and (max-width: 940px)" srcset="~/ads/reklam-@rand-landscape-470w.png">
+                           
+                            <source media="(min-width: 941px) and (max-width: 1071px)" srcset="~/ads/reklam-@rand-landscape-940w.png">
+                          
+                            <source media="(min-width: 1072px)" srcset="~/ads/reklam-@rand-portrait-320w.png">
+                            <img src="~/ads/reklam-@rand-landscape-1880w.png" class="adsPic" alt=image>
+                        </picture>
+                    </a>
+                }
+            </div>
+            <div class="latestNews">
+                <h2>De senaste nyheterna</h2>
+                @{
+                    foreach (var article in latest)
                     {
                         <div class="latestArticleCard">
-                        <p id="latestdate">@(article.Created.Value.Date==DateTime.Today.Date ? article.Created.Value.ToString(@"H:mm"):
-                        article.Created.Value.ToString(@"H:mm")+ 
-                        "\n" + 
-                        article.Created.Value.ToString(@"dd/MM") 
-                        )</p>
-                        <div class="latesttitle">
-                        <p class="latesttitletitle">@(article.Title.Length>25 ? @article.Title.Substring(0, 25)+"...":@article.Title)</p>
-                        <p>@(article.Intro.Length>35 ? @article.Intro.Substring(0, 35)+"...":@article.Intro)</p>
-                        </div>
-                        <button id="latestbutton">Läs mer  <i class="fa-solid fa-arrow-right"></i></button>
+                            <p id="latestdate">
+                                @(article.Created.Value.Date==DateTime.Today.Date ? article.Created.Value.ToString(@"H:mm"):
+                        article.Created.Value.ToString(@"H:mm")+
+                        "\n" +
+                        article.Created.Value.ToString(@"dd/MM")
+                            )
+                            </p>
+                            <div class="latesttitle">
+                                <p class="latesttitletitle">@(article.Title.Length>25 ? @article.Title.Substring(0, 25)+"...":@article.Title)</p>
+                                <p>@(article.Intro.Length>35 ? @article.Intro.Substring(0, 35)+"...":@article.Intro)</p>
+                            </div>
+                            <button id="latestbutton">Läs mer  <i class="fa-solid fa-arrow-right"></i></button>
                         </div>
                     }
                 }
-        </div>
+            </div>
+
         </div>
     </div>
 </body>
