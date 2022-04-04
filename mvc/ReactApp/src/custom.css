@@ -71,8 +71,8 @@ nav a {
 }
 
 .outlet{
-    min-width: 1000px;
-    max-width: 1000px;
+    min-width: 600px;
+    max-width: 600px;
     background-color: white;
 }
 
@@ -88,7 +88,7 @@ footer{
    
 }
 
-.articles a, .authors a{
+.articles a, .authors a ,.images a{
     display: block;
     padding: 15px;
 }
@@ -96,7 +96,9 @@ footer{
 .articles h1, .authors h1, .images h1{
     border-bottom: solid;
     border-color: var(--primar);
+    width: 100%;
 }
+
 
 .articles a:nth-child(odd) , .authors a:nth-child(odd){
     background-color: var(--ljusgra);
@@ -105,7 +107,7 @@ footer{
 #createarticlebutton , #createauthorbutton, #createimagebutton{
     position: absolute;
     top: 105px;
-    left: 1200px;
+    left: 800px;
 }
 
 .button{
@@ -116,3 +118,29 @@ footer{
     padding-right: 20px;
     border-radius: 15px;
 }
+
+/*#region images*/
+
+.images{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 25px;
+    min-width: 200px;
+    width: 100%;
+}
+
+#lableimg{
+    margin-right: 20px;
+    margin-left: 20px;
+}
+.images input{
+    margin-left: 40px;
+}
+
+#uploadImg{
+    margin: 20px;
+    width: 300px;
+}
+
+/*#endregion images*/

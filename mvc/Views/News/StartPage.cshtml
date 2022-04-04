@@ -2,6 +2,7 @@
 @{
     IEnumerable<ArticleSummaryDTO> pinned = ViewData["pinned"] as IEnumerable<ArticleSummaryDTO>;
     IEnumerable<ArticleSummaryDTO> latest = ViewData["latest"] as IEnumerable<ArticleSummaryDTO>;
+  
 }
 
 
@@ -29,9 +30,8 @@
 
                 foreach (var article in pinned)
                 {
-                    string titleWithoutSpaces = @article.Title.Replace(" ", "-");
-                                               
-                    <a id="articleCardsLink" href=@Url.Action("NewsPage","News", new {articleId = @article.Id})>
+                    string title = @article.Title.Replace(" ", "-");                           
+                    <a id="articleCardsLink" href=@Url.Action("NewsPage","News", new {articleid = article.Id, title} )>
                         <div class="articleCards">
                             <img src="~/images/@article.ImageName" class="articlePic" alt="image" />
                             <p class="articleTime">@article.Created</p>

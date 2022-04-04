@@ -27,9 +27,9 @@ namespace mvc.Controllers
 
 
         
-        public IActionResult NewsPage(Guid articleId)
+        public IActionResult NewsPage(Guid articleid)
         {
-            var articleById = Service.Services.ArticleService.Instance.GetById(articleId);
+            var articleById = Service.Services.ArticleService.Instance.GetById(articleid);
             ViewData["articleId"] = articleById;
             return View();
         }
