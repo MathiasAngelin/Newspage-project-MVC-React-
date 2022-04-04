@@ -1,11 +1,10 @@
 ﻿@using Service.Models
 @{
-   IEnumerable<ArticleDTO> articleId = ViewData["articleId"] as IEnumerable<ArticleDTO>;
+  ArticleDTO article = ViewData["articleId"] as ArticleDTO;
 }
 
-@foreach(var Article in articleId)
-{
 
-    <p>Article.Author</p>;
+@{
+   <p>@article.Title</p>
 }
 
