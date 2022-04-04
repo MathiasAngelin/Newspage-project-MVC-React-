@@ -26,9 +26,11 @@ namespace mvc.Controllers
         }
 
 
-        [HttpGet("news/{Id:Guid}-{articleName}")]
-        public IActionResult News(string articleId, string articleTitle)
+        
+        public IActionResult NewsPage(Guid articleId)
         {
+            var articleById = Service.Services.ArticleService.Instance.GetById(articleId);
+            ViewData["articleId"] = articleById;
             return View();
         }
     }

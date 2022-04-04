@@ -29,7 +29,9 @@
 
                 foreach (var article in pinned)
                 {
-                    <a id="articleCardsLink" href=https:\\www.google.com>
+                    string titleWithoutSpaces = @article.Title.Replace(" ", "-");
+                                               
+                    <a id="articleCardsLink" href=@Url.Action("NewsPage","News", new {articleId = @article.Id})>
                         <div class="articleCards">
                             <img src="~/images/@article.ImageName" class="articlePic" alt="image" />
                             <p class="articleTime">@article.Created</p>
