@@ -1,10 +1,60 @@
 ﻿@using Service.Models
 @{
-  ArticleDTO article = ViewData["articleId"] as ArticleDTO;
+    ArticleDTO article = ViewData["articleId"] as ArticleDTO;
 }
 
+<header>
+    <h3>Blåatoppens dagblad</h3>
+    <div class="theme-switch-wrapper">
+        <label class="theme-switch" for="checkbox">
+            <input type="checkbox" id="checkbox" />
+            <div class="slider round"></div>
+        </label>
+        <div id="colorslide">Byt tema</div>
+    </div>
+</header>
 
-@{
-   <p>@article.Title</p>
-}
+<body>
+    <div class="maincontainerNews">
+        <div class="NewsTitleImg">
+            @{
+                <img src="~/images/@article.ImageName" class="newsPic" alt="image" />
+                <p id="TitleInImg">@article.Title</p>
+            }
 
+        </div>
+        <div class="newsAuthor">
+        @{
+            <p>@article.Created</p>
+           
+            <img src="~/images/@article.Author.ImageName" class="AuthorPic" alt="image" />
+            <p>@article.Author.FirstName @article.Author.LastName</p>;
+            <p>@article.Author.Mail</p>
+            <p>@article.Author.TwitterUserName</p>
+
+        }
+        </div>
+        <div class="newsAds"></div>
+        <div class="newsComments"></div>
+
+    </div>
+</body>
+
+<footer>
+    <div id="footer1" class="footerobj">
+        <h2>Blåatoppens dagblad</h2>
+        <p>Bettorpsgatan 10</p>
+        <p>703 69 Örebro</p>
+        <a id="admin" href="https://localhost:7208/Admin">Admin</a>
+    </div>
+    <div id="footer2" class="footerobj">
+        <h2>Om oss</h2>
+        <p>
+            Dagstidningen Blåatoppens dagblad grundades 1821. Tidningen har under 100 år varit
+            den mest lästa tidningen i hela Blåatoppen. Ambitionen med tidningen har sedan dess
+            grundande varit att tillhandahålla medborgarna med nyhetsrapportering av den allra
+            högsta kvalitén. Blåatoppens dagblad finns i dag tillgänglig som papperstidning. etidning,
+            sajt, ljud-tidning och VR-upplevelse.
+        </p>
+    </div>
+</footer>

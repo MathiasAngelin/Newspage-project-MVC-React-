@@ -45,17 +45,20 @@ header {
     justify-content: space-between;
     background-color: #548052;
     color: white;
+    padding-left: 30px;
     padding: 5px;
+    width: 100vw;
     max-width: 2000px;
     flex-shrink: 1;
 }
 
 header h3{
     max-width:200px;
+    padding-left:20px;
 }
 
 .theme-switch-wrapper {
-   
+   margin-right: 40px;
 }
 
 #colorslide {
@@ -175,7 +178,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    max-width: 1200px;
+   /* max-width: 1200px;*/
 }
 
 .articleCards {
@@ -273,11 +276,11 @@ body {
         margin-right: 10px;
     }
 
+
 .latestArticleCard {
     height: 150px;
     border-bottom: solid var(--primar);
     width: 100%;
-    
     margin-bottom: 10px;
     display: grid;
     align-items: start;
@@ -289,6 +292,11 @@ body {
         "article"
         "read";
 }
+
+.latestArticleCard:focus {
+    border: 2px solid black;
+}
+    
 
     .latestArticleCard p {
         margin: 0px;
@@ -302,23 +310,31 @@ body {
 }
 
 #latestbutton {
+    margin-left: 70px;
     grid-area: read;
     width: 290px;
     height: 30px;
-    justify-self: center;
-    align-self: center;
+    padding-top: 10px;
+     text-align: center;
     flex-shrink: 0;
     background-color: #548052;
     color: #FFFFFF;
     margin-right: 30px;
+    text-decoration: none;
 }
 
-.latesttitle {
-    flex: none;
-    grid-area: article;
-    justify-self: flex-start;
-    flex-shrink: 1;
-}
+    #latestbutton:hover{
+        background-color: var(--sekundar);
+        color:black;
+    }
+
+
+    .latesttitle {
+        flex: none;
+        grid-area: article;
+        justify-self: flex-start;
+        flex-shrink: 1;
+    }
 
 .latesttitletitle {
     font-weight: bolder;
@@ -399,6 +415,7 @@ footer {
         align-self: center;
         justify-self: center;
         width: 100px;
+        margin-left: 0px;
     }
 
     .latesttitle {
@@ -414,9 +431,7 @@ footer {
         margin-right: 20px;
     }
 
-    .adsPic {
-       
-    }
+   
 
     .latestNews {
         max-width: 1880px;
@@ -466,6 +481,7 @@ footer {
         align-self: center;
         justify-self: center;
         width: 100px;
+        margin-left: 0px;
     }
 
     .latesttitle {
@@ -497,3 +513,70 @@ footer {
 
 
 /*#endregion bigscreen*/
+
+
+/*#region NewsPage*/
+.maincontainerNews {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap:wrap;
+   
+} 
+
+.newsContainer{
+   
+      display:flex;
+      max-width: 1000px;
+      margin: 20px;
+  }
+
+
+/*#region TitleAndImage*/
+.NewsTitleImg {
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    width:100%;
+}
+
+.TitleAndImage {
+   
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.newsPic {
+    filter: brightness(50%);
+    width: 100vw;
+    max-width: 980px;
+}
+
+#TitleInImg {
+    width: 60vw;
+    position: absolute;
+    left: 55%;
+    top: 30%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: calc(0.05 * (100vw - 360px) + 18px);
+   
+}
+
+/*#endregion TitleAndImage*/
+
+/*#region Author*/
+.newsAuthor{
+    width: 200px;
+    display:flex;
+    flex-wrap: wrap;
+    justify-items: center;
+    align-items: center;
+    justify-self: center;
+    align-self: center;
+}
+
+/*#endregion Author*/
+
+/*#endregion NewsPage*/

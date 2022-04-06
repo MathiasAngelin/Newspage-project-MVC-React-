@@ -2,7 +2,7 @@
 @{
     IEnumerable<ArticleSummaryDTO> pinned = ViewData["pinned"] as IEnumerable<ArticleSummaryDTO>;
     IEnumerable<ArticleSummaryDTO> latest = ViewData["latest"] as IEnumerable<ArticleSummaryDTO>;
-  
+
 }
 
 
@@ -30,7 +30,7 @@
 
                 foreach (var article in pinned)
                 {
-                    string title = @article.Title.Replace(" ", "-");                           
+                    string title = @article.Title.Replace(" ", "-");
                     <a id="articleCardsLink" href=@Url.Action("NewsPage","News", new {articleid = article.Id, title} )>
                         <div class="articleCards">
                             <img src="~/images/@article.ImageName" class="articlePic" alt="image" />
@@ -44,7 +44,7 @@
         </div>
         <div id="adsAndLatestNew">
             <div id="pinnedAds">
-                 @*<source media="(min-width: 471px) and (max-width: 640px)" srcset="~/ads/reklam-@rand-portrait-640w.png">*@
+                
                 @{
                     Random rnd = new Random();
                     int rand = rnd.Next(1, 4);
@@ -53,9 +53,7 @@
                         <picture>
                             <source media="(min-width: 300px) and (max-width: 470px)" srcset="~/ads/reklam-@rand-portrait-320w.png">
                             <source media="(min-width: 471px) and (max-width: 940px)" srcset="~/ads/reklam-@rand-landscape-470w.png">
-                           
                             <source media="(min-width: 941px) and (max-width: 1071px)" srcset="~/ads/reklam-@rand-landscape-940w.png">
-                          
                             <source media="(min-width: 1072px)" srcset="~/ads/reklam-@rand-portrait-320w.png">
                             <img src="~/ads/reklam-@rand-landscape-1880w.png" class="adsPic" alt=image>
                         </picture>
@@ -67,7 +65,10 @@
                 @{
                     foreach (var article in latest)
                     {
-                        <div class="latestArticleCard">
+                        string title = @article.Title.Replace(" ", "-");
+                        
+                        <div class="latestArticleCard" onclick="">
+
                             <p id="latestdate">
                                 @(article.Created.Value.Date==DateTime.Today.Date ? article.Created.Value.ToString(@"H:mm"):
                         article.Created.Value.ToString(@"H:mm")+
@@ -78,8 +79,10 @@
                             <div class="latesttitle">
                                 <p class="latesttitletitle">@(article.Title.Length>25 ? @article.Title.Substring(0, 25)+"...":@article.Title)</p>
                                 <p>@(article.Intro.Length>35 ? @article.Intro.Substring(0, 35)+"...":@article.Intro)</p>
+
                             </div>
-                            <button id="latestbutton">Läs mer  <i class="fa-solid fa-arrow-right"></i></button>
+
+                            <a type="button" href=@Url.Action("NewsPage","News", new {articleid = article.Id, title}) id="latestbutton"> Läs mer  <i class="fa-solid fa-arrow-right"></i></a>
                         </div>
                     }
                 }
