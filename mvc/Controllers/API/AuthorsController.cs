@@ -11,23 +11,19 @@ namespace mvc.Controllers.API
     public class AuthorsController : ControllerBase
     {
         [HttpGet]
-        public IEnumerable<Author> ListAllAuthors()
+        public IActionResult ListAllAuthors()
         {
-            var Authorlist = new List<Author>();
-            var AuthorlistDTO = AuthorService.Instance.GetAuthors();
-            foreach (var author in AuthorlistDTO)
+            try
             {
-                Authorlist.Add(new Author
-                {
-                    FirstName = author.FirstName,
-                    LastName = author.LastName,
-                    Id = author.Id,
-                    ImageName = author.ImageName,
-                    Mail = author.Mail,
-                    TwitterUserName = author.TwitterUserName,
-                });
+            var AuthorlistDTO = AuthorService.Instance.GetAuthors();
+                return Ok(AuthorlistDTO);
             }
-            return Authorlist;
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            
+            
 
         }
         [HttpPost]

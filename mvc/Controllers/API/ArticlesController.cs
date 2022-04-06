@@ -11,24 +11,19 @@ namespace mvc.Controllers.API
     public class ArticlesController : ControllerBase
     {
         [HttpGet]
-        public IEnumerable<Article> ListAllArticles()
+        public IActionResult ListAllArticles()
         {
-            var articlelist = new List<Article>();
-            var articleListDTO = ArticleService.Instance.GetAllArticles();
-
-            foreach(var article in articleListDTO)
+            try
             {
-                articlelist.Add(new Article
-                {
-                    Id = (Guid)article.Id,
-                    Title = article.Title,
-                    Intro = article.Intro,
-                    AuthorId = article.AuthorId,
-                    ImageName = article.ImageName,
-                    Pinned = article.Pinned,
-                }); ;
+            var articleListDTO = ArticleService.Instance.GetAllArticles();
+                return Ok(articleListDTO);
             }
-            return articlelist;
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+            
         }
 
         [HttpPost]
