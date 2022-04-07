@@ -4,7 +4,7 @@ using Service.Models;
 
 namespace Service.Services
 {
-    public class ArticleService 
+    public class ArticleService
     {
         private static ArticleService? instance = null;
 
@@ -20,8 +20,10 @@ namespace Service.Services
             }
         }
 
-        public ArticleDTO GetById(Guid articleId) {
-            using (var context = new ExamContext()) {
+        public ArticleDTO GetById(Guid articleId)
+        {
+            using (var context = new ExamContext())
+            {
                 var article = context.Articles
                     .Include(x => x.Comments)
                     .Include(x => x.Blocks)
@@ -32,36 +34,38 @@ namespace Service.Services
                     throw new NullReferenceException($"No article found, id:{articleId}");
 
                 return new ArticleDTO
+                {
+                    Id = article.Id,
+                    Title = article.Title,
+                    Intro = article.Intro,
+                    Created = article.Created,
+                    Pinned = article.Pinned,
+                    ImageName = article.ImageName,
+                    Author = new AuthorDTO
                     {
-                        Id = article.Id,
-                        Title = article.Title,
-                        Intro = article.Intro,
-                        Created = article.Created,
-                        Pinned = article.Pinned,
-                        ImageName = article.ImageName,
-                        Author = new AuthorDTO
-                        {
-                            Id = article.Author.Id,
-                            FirstName = article.Author.FirstName,
-                            LastName = article.Author.LastName,
-                            ImageName = article.Author.ImageName
-                        },
-                        Comments = article.Comments.Select(c => new CommentDTO
-                        {
-                            Id = c.Id,
-                            Value = c.Value,
-                            Created = c.Created,
-                            CommentedBy = c.CommentedBy
-                        }).OrderByDescending(comment => comment.Created),
-                        Blocks = article.Blocks.Select(b => new BlockDTO
-                        {
-                            Id = b.Id,
-                            Type = b.Type,
-                            Value = b.Value,
-                            Order = b.Order
-                        }).OrderBy(block => block.Order),
+                        Id = article.Author.Id,
+                        FirstName = article.Author.FirstName,
+                        LastName = article.Author.LastName,
+                        ImageName = article.Author.ImageName,
+                        TwitterUserName = article.Author.TwitterUserName,
+                        Mail = article.Author.Mail
+                    },
+                    Comments = article.Comments.Select(c => new CommentDTO
+                    {
+                        Id = c.Id,
+                        Value = c.Value,
+                        Created = c.Created,
+                        CommentedBy = c.CommentedBy
+                    }).OrderByDescending(comment => comment.Created),
+                    Blocks = article.Blocks.Select(b => new BlockDTO
+                    {
+                        Id = b.Id,
+                        Type = b.Type,
+                        Value = b.Value,
+                        Order = b.Order
+                    }).OrderBy(block => block.Order),
 
-                    };
+                };
             }
         }
 
@@ -184,7 +188,7 @@ namespace Service.Services
                 if (article == null)
                     throw new NullReferenceException($"No Article found with Id: {articleDto.Id}");
 
-                if(!string.IsNullOrEmpty(articleDto.Title))
+                if (!string.IsNullOrEmpty(articleDto.Title))
                     article.Title = articleDto.Title;
 
                 if (!string.IsNullOrEmpty(articleDto.Intro))
@@ -216,7 +220,7 @@ namespace Service.Services
                         if (existingBlock == null)
                         {
                             newBlockList.Add(new Block
-                            { 
+                            {
                                 Value = block.Value,
                                 Type = block.Type,
                                 Order = block.Order
@@ -232,14 +236,15 @@ namespace Service.Services
                     article.Blocks = newBlockList;
                 }
 
-                context.Update(article);  
+                context.Update(article);
                 context.SaveChanges();
-                
+
             }
         }
 
-        public void AddComment(CreateCommentDTO comment) {
-            
+        public void AddComment(CreateCommentDTO comment)
+        {
+
             using (var context = new ExamContext())
             {
                 var article = context.Articles.Include(x => x.Comments).FirstOrDefault(x => x.Id == comment.ArticleId);
