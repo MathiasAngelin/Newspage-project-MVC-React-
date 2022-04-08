@@ -29,7 +29,7 @@
                     <p id="authorCreated">@article.Created</p>
 
                     <img src="~/images/@article.Author.ImageName" class="AuthorPic" alt="image" />
-                    <p id="newsAuthorName">@article.Author.FirstName @article.Author.LastName</p>
+                    <p id="newsAuthorName">@article.Author.FirstName @article.Author.LastName <i class="fa-solid fa-circle-info"></i></p>
 
                     <br>
                     <a class="links" id="mail" href="@article.Author.Mail"> <i class="fa-regular fa-envelope"></i> E-Post</a>
@@ -46,7 +46,7 @@
 
                 <a id="articleAdsLinkNews" href=https://www.buyawesomestuff.com target="_blank">
                     <picture>
-                        <source media="(min-width: 0px) and (max-width: 700px)" srcset="~/ads/reklam-@rand-landscape-470w.png">
+                        <source media="(min-width: 0px) and (max-width: 700px)" srcset="~/ads/reklam-@rand-landscape-940w.png">
                         <source media="(min-width: 701px) and (max-width: 2500px)" srcset="~/ads/reklam-@rand-portrait-320w.png">
                         <img src="~/ads/reklam-@rand-portrait-320w.png" class="adsPicNews" alt=image>
                     </picture>
@@ -75,9 +75,17 @@
                 }
             </div>
 
-
-
             <div class="newsComments">
+                <p id="commentheader"></p>
+                <h3>Kommentarer</h3>
+               
+                @{
+                    foreach(var comment in article.Comments)
+                    {
+                    <p>@comment.Id</p>
+                    <p>hej</p>
+                    }
+                }
             </div>
 
         </div>
