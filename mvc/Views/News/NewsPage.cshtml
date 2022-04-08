@@ -23,33 +23,66 @@
             }
 
         </div>
-        <div class="newsAuthor">
-        @{
-            <p id="authorCreated">@article.Created</p>
-           
-            <img src="~/images/@article.Author.ImageName" class="AuthorPic" alt="image" />
-            <p id="newsAuthorName">@article.Author.FirstName @article.Author.LastName</p><br>
-            <a class="links" id="mail" href="@article.Author.Mail"> <i class="fa-regular fa-envelope"></i> E-Post</a><br />
-            <a class="links" id="twitter" href="@article.Author.TwitterUserName"><i class="fa-brands fa-twitter"></i> Twitter </a>
+        <div class="AuthorAndAd">
+            <div class="newsAuthor">
+                @{
+                    <p id="authorCreated">@article.Created</p>
 
-        }
-        </div>
-        <div class="newsAds"></div>
-        @{
-                    Random rnd = new Random();
-                    int rand = rnd.Next(1, 4);
+                    <img src="~/images/@article.Author.ImageName" class="AuthorPic" alt="image" />
+                    <p id="newsAuthorName">@article.Author.FirstName @article.Author.LastName</p>
 
-                    <a id="articleAdsLink" href=https://www.buyawesomestuff.com target="_blank">
-                        <picture>
-                            <source media="(min-width: 0px) and (max-width: 700px)" srcset="~/ads/reklam-@rand-landscape-470w.png">
-                            <source media="(min-width: 701px) and (max-width: 2500px)" srcset="~/ads/reklam-@rand-portrait-320w.png">
-                            <img src="~/ads/reklam-@rand-portrait-320w.png" class="adsPic" alt=image>
-                        </picture>
-                    </a>
+                    <br>
+                    <a class="links" id="mail" href="@article.Author.Mail"> <i class="fa-regular fa-envelope"></i> E-Post</a>
+
+                    <br />
+                    <a class="links" id="twitter" href="@article.Author.TwitterUserName"><i class="fa-brands fa-twitter"></i> Twitter </a>
+
                 }
-        <div class="newsComments"></div>
+            </div>
+            <div class="newsAds"></div>
+            @{
+                Random rnd = new Random();
+                int rand = rnd.Next(1, 4);
 
+                <a id="articleAdsLinkNews" href=https://www.buyawesomestuff.com target="_blank">
+                    <picture>
+                        <source media="(min-width: 0px) and (max-width: 700px)" srcset="~/ads/reklam-@rand-landscape-470w.png">
+                        <source media="(min-width: 701px) and (max-width: 2500px)" srcset="~/ads/reklam-@rand-portrait-320w.png">
+                        <img src="~/ads/reklam-@rand-portrait-320w.png" class="adsPicNews" alt=image>
+                    </picture>
+                </a>
+            }
+        </div>
+        <div class="ArticleAndComments">
+            <div class="newsArticle">
+                @{
+                    foreach (var block in article.Blocks)
+                    {
+                        if (block.Type == "paragraph")
+                        {
+                            <p class="newsParagraph">@block.Value</p>
+                        }
+                        if (block.Type == "image")
+                        {
+                            <img src="~/images/@block.Value" class="AricleNewsPic" alt="image" />
+                        }
+                        if (block.Type == "quote")
+                        {
+                            <p class="newsQuote"> <i class="fa-solid fa-quote-left"></i> @block.Value <i class="fa-solid fa-quote-right"></i></p>
+                        }
+
+                    }
+                }
+            </div>
+
+
+
+            <div class="newsComments">
+            </div>
+
+        </div>
     </div>
+
 </body>
 
 <footer>

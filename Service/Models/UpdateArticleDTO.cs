@@ -14,7 +14,7 @@ namespace Service.Models
 
         public string? Intro { get; set; }
 
-        public IEnumerable<UpdateBlockDTO>? Blocks { get; set; }
+        public IEnumerable<UpdateOrCreateBlockDTO>? Blocks { get; set; }
 
         public Guid? AuthorId { get; set; }
 

@@ -47,8 +47,8 @@ namespace Service.Services
                         FirstName = article.Author.FirstName,
                         LastName = article.Author.LastName,
                         ImageName = article.Author.ImageName,
+                        Mail = article.Author.Mail,
                         TwitterUserName = article.Author.TwitterUserName,
-                        Mail = article.Author.Mail
                     },
                     Comments = article.Comments.Select(c => new CommentDTO
                     {
@@ -64,7 +64,6 @@ namespace Service.Services
                         Value = b.Value,
                         Order = b.Order
                     }).OrderBy(block => block.Order),
-
                 };
             }
         }
@@ -205,6 +204,8 @@ namespace Service.Services
 
                 if (articleDto.Blocks != null)
                 {
+                    var currentBlocks = article.Blocks.ToList();
+
                     var imageFileNames = ImageService.Instance.GetAll();
                     var newBlockList = new List<Block>();
                     foreach (var block in articleDto.Blocks)
@@ -214,29 +215,35 @@ namespace Service.Services
                             throw new ArgumentException("Provided imageName does not exist on server. Image name: " + block.Value);
                         }
 
-                        var existingBlock = article.Blocks
-                            .FirstOrDefault(p => p.Id == block.Id);
-
-                        if (existingBlock == null)
+                        if (block.Id.HasValue)
                         {
-                            newBlockList.Add(new Block
-                            {
-                                Value = block.Value,
-                                Type = block.Type,
-                                Order = block.Order
-                            });
-                        }
-                        else
-                        {
+                            var existingBlock = article.Blocks
+                            .First(p => p.Id == block.Id);
                             newBlockList.Add(existingBlock);
                             existingBlock.Type = block.Type;
                             existingBlock.Value = block.Value;
+                            existingBlock.Order = block.Order;
+                        }
+                        else
+                        {
+                            var newBlock = new Block
+                            {
+                                Id = Guid.NewGuid(),
+                                Value = block.Value,
+                                Type = block.Type,
+                                Order = block.Order
+                            };
+                            newBlockList.Add(newBlock);
+                            context.Add(newBlock);
                         }
                     }
                     article.Blocks = newBlockList;
+
+                    var removedBlocks = currentBlocks.Where(block => !article.Blocks.Contains(block)).ToList();
+                    context.RemoveRange(removedBlocks);
                 }
 
-                context.Update(article);
+                context.Articles.Update(article);
                 context.SaveChanges();
 
             }

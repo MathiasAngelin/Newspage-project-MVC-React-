@@ -48,6 +48,7 @@ header {
     width: 100vw;
     max-width: 2000px;
     flex-shrink: 1;
+  
 }
 
     header h3 {
@@ -443,6 +444,14 @@ footer {
     .latestNews {
         max-width: 1880px;
     }
+
+    .AuthorAndAd {
+        order: 2;
+    }
+
+    .ArticleAndComments {
+        order: 1
+    }
 }
 /*#endregion mediumscreen*/
 
@@ -459,8 +468,6 @@ footer {
     footer > div {
         flex: 0 1 content;
     }
-
-
 
     .latestArticleCard {
         height: 70px;
@@ -515,6 +522,14 @@ footer {
         margin-top: 10px;
         height: 510px;
     }
+
+    .AuthorAndAd {
+        order: 2;
+    }
+    .ArticleAndComments {
+        order: 1
+    }
+
 }
 
 
@@ -569,9 +584,14 @@ footer {
 /*#endregion TitleAndImage*/
 
 /*#region Author*/
+.AuthorAndAd {
+  
+    margin-bottom: 10px;
+    margin-right: 10px;
+  
+}
+
 .newsAuthor {
-    display: flex;
-    width: 200px;
     display: flex;
     flex-wrap: wrap;
     background-color: var(--nyhetskort);
@@ -622,4 +642,82 @@ a, a:visited, a:hover, a:active {
     color: inherit;
 }
 /*#endregion Author*/
+
+/*#region ads*/
+#articleAdsLinkNews {
+    justify-content: center;
+    align-content: center;
+    display: flex;
+    margin-left: auto;
+}
+
+.adsPicNews {
+    max-width: 200px;
+    flex-shrink:1;
+}
+/*#endregion ads*/
+
+/*#region Article*/
+.ArticleAndComments {
+    display: flex;
+    max-width: 735px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: var(--nyhetskort);
+    color: var(--timeauthor);
+    align-content: center;
+    justify-content: center;
+    padding: 20px;
+    flex: 6 6 400px;
+    min-width: 500px;
+    margin-left:10px;
+    
+}
+
+.newsArticle{
+   display:flex;
+   flex-wrap: wrap;
+   justify-content:center;
+}
+
+.AricleNewsPic {
+    flex-shrink: 1;
+    width: 100%;
+    max-width: 735px;
+
+}
+
+.newsParagraph {
+    background-color: var(--nyhetskort);
+    color: var(--timeauthor);
+    flex-shrink: 1;
+}
+
+    .newsParagraph:first-child {
+        color: var(--rubrik);
+        font-weight: bold;
+        flex-shrink: 1;
+    }
+
+.newsQuote {
+    background-color: #548052;
+    color: white;
+    text-align: center;
+    width: 100%;
+    align-self: center;
+    padding: 20px;
+    font-weight: bold;
+    flex-shrink: 1;
+}
+
+.fa-quote-left, .fa-quote-right {
+    font-size: 3rem;
+    opacity: 0.2;
+    margin: -10px;
+}
+
+
+
+/*#endregion Article*/
+
 /*#endregion NewsPage*/

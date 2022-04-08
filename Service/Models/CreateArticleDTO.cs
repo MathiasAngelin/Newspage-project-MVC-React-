@@ -12,7 +12,7 @@ namespace Service.Models
 
         public string Intro { get; set; }
 
-        public List<BlockDTO> Blocks { get; set; } = new List<BlockDTO>();
+        public List<UpdateOrCreateBlockDTO> Blocks { get; set; } = new List<UpdateOrCreateBlockDTO>();
 
         public Guid AuthorId { get; set; }
 
