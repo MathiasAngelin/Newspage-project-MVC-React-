@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Service;
+using Service.Models;
 
 
 namespace mvc.Controllers
@@ -32,6 +33,13 @@ namespace mvc.Controllers
             var articleById = Service.Services.ArticleService.Instance.GetById(articleid);
             ViewData["articleId"] = articleById;
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult NewsPage(CreateCommentDTO CommentDTO)
+        {
+            Service.Services.ArticleService.Instance.AddComment(CommentDTO);
+            return new EmptyResult();
         }
     }
 }

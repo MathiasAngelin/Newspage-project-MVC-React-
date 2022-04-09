@@ -40,5 +40,11 @@ function switchThemeWithText(e) {
         
 }
 
+document.getElementById("writecommentbutton").onclick = toggleText;
 
+function toggleText(e) {
+    document.getElementById("writeComment").style.visibility = "visible";
+    document.getElementById("writeComment").style.display = "inline";
+    
+}
 //Getpinned

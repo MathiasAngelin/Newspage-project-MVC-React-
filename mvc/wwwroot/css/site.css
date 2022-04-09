@@ -314,7 +314,7 @@ body {
 
 #latestbutton {
     margin-left: 70px;
-    
+ 
     grid-area: read;
     width: 270px;
     height: 30px;
@@ -573,10 +573,13 @@ footer {
 
     /*#endregion Article*/
 
+   
+
 /*#region Comments*/
 .newsComments{
     justify-content:flex-start;
     align-content:flex-start;
+    width: 100%;
 }
 
 #commentheader {
@@ -584,10 +587,101 @@ footer {
     border-top: solid;
     color: var(--timeauthor);
     width: auto;
+    width:100%
+}
+
+#hej {
+    width: 90vw;
+}
+
+.newsComments input{
+    width: 97%;
+}
+
+#commentContent {
+    height: 80px;
+}
+
+#Value {
+    height: 80px;
+}
+
+#submitcomment {
+    float: right;
+    max-width: 150px;
+    background-color: #548052;
+    color: #FFFFFF;
+    padding: 10px 20px 10px 20px;
+    margin-right:20px;
+    border-radius: 25px;
+}
+
+.writeComment {
+   /* visibility:hidden;
+    display: none*/
+}
+
+.writeComment > * {
+    margin-top: 7px;
+    margin-bottom: 7px;
+}
+
+.commentheader{
+    display:flex;
+    justify-content: space-between;
+}
+
+.commentheader > * {
+    align-self: center;
+}
+
+.listComments{
+
+}
+
+.commentContent:nth-child(even) {
+    background-color: var(--ljusgra);
+}
+
+.commentContent:nth-child(odd) {
+    background-color: var(--nyhetskort);
+    color: var(--timeauthor);
+}
+
+#floatright {
+    float:right;
+}
+
+.commentContent{
+    display:flex;
+    justify-content:space-between;
+    width: 100%
+
+}
+
+.firstRow{
+    display:flex;
+    flex-wrap: wrap;
+    width:100%
+   
+}
+
+#boarderRow {
+    padding-top: 10px;
+    border-top: solid;
+    color: var(--timeauthor);
+    width: 100%;
+}
+
+.commentContent p{
+    margin: 10px;
+}
+
+#commentCreator{
+    margin-bottom: 0px;
 }
 /*#endregion Comments*/
 /*#endregion NewsPage*/
-
 /*#region smallscreen*/
 @media screen and (max-width: 699px) and (min-width: 100px) {
     .adsPicNews {
