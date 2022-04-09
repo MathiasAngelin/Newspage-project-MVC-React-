@@ -600,10 +600,13 @@ footer {
 
 #commentContent {
     height: 80px;
+    
 }
 
 #Value {
-    height: 80px;
+    height: 20px;
+    text-align: left;
+    padding-bottom: 80px;
 }
 
 #submitcomment {
@@ -616,12 +619,12 @@ footer {
     border-radius: 25px;
 }
 
-.writeComment {
-   /* visibility:hidden;
-    display: none*/
+#writeComment {
+    visibility:hidden;
+    display: none
 }
 
-.writeComment > * {
+#writeComment > * {
     margin-top: 7px;
     margin-bottom: 7px;
 }
@@ -633,10 +636,6 @@ footer {
 
 .commentheader > * {
     align-self: center;
-}
-
-.listComments{
-
 }
 
 .commentContent:nth-child(even) {
@@ -652,36 +651,43 @@ footer {
     float:right;
 }
 
-.commentContent{
-    display:flex;
-    justify-content:space-between;
-    width: 100%
-
+.commentContent {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    flex-wrap: wrap;
+    padding: 5px;
+    padding-bottom: 15px;
 }
 
-.firstRow{
-    display:flex;
-    flex-wrap: wrap;
-    width:100%
-   
+.firstRow {
+    display: flex;
+    justify-content: space-between;
+    width: 100%
 }
 
 #boarderRow {
-    padding-top: 10px;
+    padding-top: 5px;
     border-top: solid;
     color: var(--timeauthor);
     width: 100%;
 }
 
 .commentContent p{
-    margin: 10px;
+    margin: 0px;
 }
 
 #commentCreator{
     margin-bottom: 0px;
 }
+
+#buttoncreate{
+    text-decoration:underline;
+    cursor: pointer;
+}
 /*#endregion Comments*/
 /*#endregion NewsPage*/
+
 /*#region smallscreen*/
 @media screen and (max-width: 699px) and (min-width: 100px) {
     .adsPicNews {

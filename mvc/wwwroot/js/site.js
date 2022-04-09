@@ -40,11 +40,14 @@ function switchThemeWithText(e) {
         
 }
 
-document.getElementById("writecommentbutton").onclick = toggleText;
+function myHide() {
+    var x = document.getElementById("writeComment");
+    var y = document.getElementById("buttoncreate")
+    x.style.visibility = "visible";
+    x.style.display = "block";
 
-function toggleText(e) {
-    document.getElementById("writeComment").style.visibility = "visible";
-    document.getElementById("writeComment").style.display = "inline";
-    
+    y.style.visibility = "hidden";
+    y.style.display = "none";
+   
 }
 //Getpinned

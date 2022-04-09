@@ -77,43 +77,36 @@
                 }
             </div>
 
-           
 
             <div class="newsComments">
                 <p id="commentheader"></p>
                 <div class="commentheader">
                     <h3>@article.Comments.Count() Kommentarer</h3>
-                    <div id="writecommentbutton">Skriv en kommentar</div>
+                    <div id="buttoncreate" onclick="myHide()">Skriv en kommentar</div>
                 </div>
-             
-                <div class="writeComment">
-                   
+
+                <div id="writeComment">
+
                     @using (Html.BeginForm("NewsPage", "News", FormMethod.Post))
                     {
-                         
+
                         <table>
                             <tr>
                                 <td>Din E-postadress </td>
-                                </tr>
-                                <td id="CommentEmail">@Html.TextBoxFor(m => m.CommentedBy)</td>
-                                <tr>
+                            </tr>
+                            <td id="CommentEmail">@Html.TextBoxFor(m => m.CommentedBy)</td>
+                            <tr>
                             </tr>
                             <tr>
-                                <tr>
-                                    <td id="hej">Din kommentar </td>
-                               </tr>
-
-                                <td id="commentContent">@Html.TextBoxFor(m => m.Value)</td>
-                              
+                            <tr>
+                                <td id="hej">Din kommentar </td>
                             </tr>
-                            <tr>    
+
+                            <td id="commentContent">@Html.TextBoxFor(m => m.Value)</td>
+                            </tr>
+                            <tr>
                                 <br>
                                 <td>@Html.HiddenFor(m => m.ArticleId)</td>
-                                 
-                               
-                               
-
-                               
                             </tr>
                             <tr>
                                 <td colspan="2"><input id="submitcomment" type="submit" value="Lägg till kommentar" /></td>
@@ -126,19 +119,19 @@
                 </div>
                 <div class="listComments">
 
-                @{
-                    foreach (var comments in article.Comments)
-                    {
-                        <div class="commentContent">
-                        <div class="firstRow">
-                        <p id="commentCreator">@comments.CommentedBy</p>
-                        <p id="boarderRow">@comments.Value</p>
-                        </div>
-                     
-                        <p >@comments.Created</p>
-                        </div>
+                    @{
+                        foreach (var comments in article.Comments)
+                        {
+                            <div class="commentContent">
+                                <div class="firstRow">
+                                    <p id="commentCreator">@comments.CommentedBy</p>
+                                    <p id="commentTime">@comments.Created</p>
+                                </div>
+
+                                <p id="boarderRow">@comments.Value</p>
+                            </div>
+                        }
                     }
-                }
                 </div>
             </div>
 
