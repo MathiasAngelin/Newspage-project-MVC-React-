@@ -90,6 +90,7 @@
                    
                     @using (Html.BeginForm("NewsPage", "News", FormMethod.Post))
                     {
+                         
                         <table>
                             <tr>
                                 <td>Din E-postadress </td>
@@ -108,7 +109,9 @@
                             <tr>    
                                 <br>
                                 <td>@Html.HiddenFor(m => m.ArticleId)</td>
-                                
+                                 
+                               
+                               
 
                                
                             </tr>
@@ -129,7 +132,7 @@
                         <div class="commentContent">
                         <div class="firstRow">
                         <p id="commentCreator">@comments.CommentedBy</p>
-                           <p id="boarderRow">@comments.Value</p>
+                        <p id="boarderRow">@comments.Value</p>
                         </div>
                      
                         <p >@comments.Created</p>

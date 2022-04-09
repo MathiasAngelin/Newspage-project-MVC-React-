@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Service;
 using Service.Models;
+using Microsoft.AspNetCore.Http.Extensions;
 
 
 namespace mvc.Controllers
@@ -39,7 +40,7 @@ namespace mvc.Controllers
         public IActionResult NewsPage(CreateCommentDTO CommentDTO)
         {
             Service.Services.ArticleService.Instance.AddComment(CommentDTO);
-            return new EmptyResult();
+            return Redirect(@"https://localhost:7208/");
         }
     }
 }
