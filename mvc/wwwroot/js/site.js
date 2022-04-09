@@ -50,4 +50,15 @@ function myHide() {
     y.style.display = "none";
    
 }
+
+//var submit = document.getElementById("submitcomment")
+//submit.onclick = validate;
+
+//function validate() {
+//    var email = document.getElementById("CommentEmail");
+//    if (email === "") {
+
+//        alert("Hello! I am an alert box!!");
+//    }
+//}
 //Getpinned
