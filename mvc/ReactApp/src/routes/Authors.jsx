@@ -20,15 +20,23 @@ useEffect(() => {
       <h1>Journalister</h1>
       <button className="button" id="createauthorbutton">Skapa</button>
         {authors.map((author) => (
-          
+          <div className="Authorlist">
+          <p>{author.firstName} {author.lastName}</p>
+
           <Link
             to={`/Authors/${author.firstName}`}
             key={author.id}
           >
-            {author.firstName} {author.lastName}
+            <button className="editbutton"><i className="fa-solid fa-pen"></i></button>
+            
           </Link>
+          <button className="deletebutton"><i className="fa-regular fa-trash-can"></i></button> 
+          </div>
+
         ))}
+        
       </nav>
+      
     </div>
   );
 }

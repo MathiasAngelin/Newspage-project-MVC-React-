@@ -20,12 +20,19 @@ useEffect(() => {
         <h1>Artiklar</h1>
         <button className="button" id="createarticlebutton">Skapa</button>
         {articles.map((article) => (
+          
+           <div className="Articlelist">
+            <p> {article.title}</p>
           <Link
             to={`/Articles/${article.title}`}
             key={article.id}
           >
-            {article.title}
-          </Link>
+           <button className="editbutton"><i className="fa-solid fa-pen"></i></button>
+            
+            </Link>
+            <button className="deletebutton"><i className="fa-regular fa-trash-can"></i></button> 
+            </div>
+          
         ))}
       </nav>
     </div>

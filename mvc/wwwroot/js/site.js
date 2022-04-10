@@ -51,14 +51,4 @@ function myHide() {
    
 }
 
-//var submit = document.getElementById("submitcomment")
-//submit.onclick = validate;
-
-//function validate() {
-//    var email = document.getElementById("CommentEmail");
-//    if (email === "") {
-
-//        alert("Hello! I am an alert box!!");
-//    }
-//}
 //Getpinned
