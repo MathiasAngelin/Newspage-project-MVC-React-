@@ -33,7 +33,7 @@ export function CreateAuthor() {
                         <input type="text" name="Twitter" />  <br/> <br/>
                     </label>
                     
-                    <input className="button" type="submit" value="Spara" />
+                    <input className="button" id="createAuthorbtn" type="submit" value="Spara" />
                 </form>
             </div>
         )

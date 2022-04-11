@@ -10,6 +10,11 @@ namespace DAL.Configuration
             builder.Property(article => article.Title)
                 .IsRequired()
                 .HasMaxLength(75);
+
+            builder
+                .HasMany(article => article.Blocks)
+                .WithOne()
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

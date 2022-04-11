@@ -19,12 +19,10 @@ useEffect(() => {
 function deleteArticle(id){
   fetch(`https://localhost:7208/api/Articles/${id}`, {
     method:'DELETE'
-  }).then((result) => {
-    result.json().then((resp) => {
-      console.warn(resp)
-    })
-  })
-}
+  }).then(alert("Article deleted, please refresh page")) 
+    }
+  
+
   return (
     <div className="articles">
       <nav>

@@ -16,11 +16,8 @@ useEffect(() => {
 function deleteAuthor(id){
   fetch(`https://localhost:7208/api/Authors/${id}`, {
     method:'DELETE'
-  }).then((result) => {
-    result.json().then((resp) => {
-      console.warn(resp)
-    })
-  })
+  }).then(alert("Author deleted, please refresh page")) 
+  
 }
 
   return (
