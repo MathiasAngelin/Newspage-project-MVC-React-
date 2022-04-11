@@ -1,4 +1,9 @@
+
 /*#region main*/
+
+
+
+
 :root{
     font-family: Arial;
     --vit: #FFFFFF;
@@ -36,7 +41,7 @@ body{
 }
 
 
-nav{
+nav ,.createNewArticle ,.createNewAuthor{
     padding-top: 25px;
     height: 100%;
     min-width: 200px;
@@ -81,6 +86,8 @@ footer{
     padding: 20px;
 }
 /*#endregion main*/
+
+/*#region overgripande*/
 .articles , .authors , .images{
     display: flex;
     padding-left: 15px;
@@ -93,7 +100,7 @@ footer{
     padding: 15px;
 }
 
-.articles h1, .authors h1, .images h1{
+.articles h1, .authors h1, .images h1, .createNewAuthor h1, .createNewArticle h1 {
     border-bottom: solid;
     border-color: var(--primar);
     width: 100%;
@@ -128,7 +135,9 @@ footer{
     border: solid black;
 }
 
-/*#region images*/
+/*#endregion overgripande*/
+
+/*#region Images*/
 
 .images{
     display: flex;
@@ -137,6 +146,20 @@ footer{
     padding-top: 25px;
     min-width: 200px;
     width: 100%;
+}
+
+.images form{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+}
+
+form > *{
+    justify-self: center;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
 }
 
 #lableimg{
@@ -152,6 +175,22 @@ footer{
     width: 300px;
 }
 
+#displayMessage{
+    color:var(--primar);
+    background-color: white;
+    border: solid var(--primar);
+    margin-top:50px;
+    margin-bottom: 50px;
+    border-radius: 12.5px;
+    padding-top:3px;
+    padding-bottom: 3px;
+    padding-left: 150px;
+    padding-right:150px;
+}
+
+/*#endregion Images*/
+
+/*#region AuthorAndArticle*/
 .Authorlist ,.Articlelist{
     width: 100%;
     display: flex;
@@ -198,5 +237,33 @@ footer{
     text-decoration: none;
 }
 
+/*#endregion AuthorAndArticle*/
 
-/*#endregion images*/
+/*#region Article*/
+
+.createNewArticle{
+ 
+    margin-left: 15px;
+}
+
+.createNewArticle form{
+    display:flex;
+    flex-wrap: wrap;
+}
+
+
+
+.createNewArticle form label{
+    color:var(--primar);
+    width: 530px;
+}
+
+.createNewArticle form label > textarea, input, select{
+    width: 400px;
+}
+
+.createNewArticle form :nth-child(-n+5) > input, select, textarea {
+    margin-left: 100px;
+}
+
+/*#endregion Article*/
