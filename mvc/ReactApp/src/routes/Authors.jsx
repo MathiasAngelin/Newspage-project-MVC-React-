@@ -13,12 +13,21 @@ useEffect(() => {
   });
 }, [])
 
+function deleteAuthor(id){
+  fetch(`https://localhost:7208/api/Authors/${id}`, {
+    method:'DELETE'
+  }).then((result) => {
+    result.json().then((resp) => {
+      console.warn(resp)
+    })
+  })
+}
 
   return (
     <div className="authors">
       <nav>
       <h1>Journalister</h1>
-      <button className="button" id="createauthorbutton">Skapa</button>
+      <button className="button" id="createauthorbutton"><Link to="/CreateAuthor">Skapa</Link></button>
         {authors.map((author) => (
           <div className="Authorlist">
           <p>{author.firstName} {author.lastName}</p>
@@ -27,10 +36,10 @@ useEffect(() => {
             to={`/Authors/${author.firstName}`}
             key={author.id}
           >
-            <button className="editbutton"><i className="fa-solid fa-pen"></i></button>
+            <button className="editbutton button"><i className="fa-solid fa-pen"></i></button>
             
           </Link>
-          <button className="deletebutton"><i className="fa-regular fa-trash-can"></i></button> 
+          <button className="deletebutton button" onClick={() => deleteAuthor(author.id)}><i className="fa-regular fa-trash-can"></i></button> 
           </div>
 
         ))}

@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect,useState } from "react";
 import { Link } from "react-router-dom";
 
+
 export function Articles() {
 const [articles, setAricles] = useState([]);
 
@@ -14,11 +15,21 @@ useEffect(() => {
 }, [])
 
 
+
+function deleteArticle(id){
+  fetch(`https://localhost:7208/api/Articles/${id}`, {
+    method:'DELETE'
+  }).then((result) => {
+    result.json().then((resp) => {
+      console.warn(resp)
+    })
+  })
+}
   return (
     <div className="articles">
       <nav>
         <h1>Artiklar</h1>
-        <button className="button" id="createarticlebutton">Skapa</button>
+        <button className="button" id="createarticlebutton"><Link to="/CreateArticle">Skapa</Link></button>
         {articles.map((article) => (
           
            <div className="Articlelist">
@@ -27,10 +38,11 @@ useEffect(() => {
             to={`/Articles/${article.title}`}
             key={article.id}
           >
-           <button className="editbutton"><i className="fa-solid fa-pen"></i></button>
+           <button className="editbutton button"><i className="fa-solid fa-pen"></i></button>
             
             </Link>
-            <button className="deletebutton"><i className="fa-regular fa-trash-can"></i></button> 
+            <button className="deletebutton button" onClick={() => deleteArticle(article.id)}><i className="fa-regular fa-trash-can"></i></button> 
+            
             </div>
           
         ))}

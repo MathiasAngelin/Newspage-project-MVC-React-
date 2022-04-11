@@ -590,7 +590,7 @@ a, a:visited, a:hover, a:active {
     width: 90vw;
 }
 
-.newsComments input {
+.newsComments input, textarea{
     width: 97%;
 }
 

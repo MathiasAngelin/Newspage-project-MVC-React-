@@ -17,9 +17,12 @@ export default class App extends Component {
                     <div className='mainbody'>
                         <div className='sidemenu'>
                             <nav>
-                                <p id='firstLink'><Link to="/Articles">Artiklar</Link></p>
-                                <p><Link to="/Authors">Journaliser</Link></p>
+                                <p id='firstLink'>
+                                <Link to="/Articles">Artiklar</Link></p>
+                                <p><Link to="/Authors">Journalister</Link></p>
                                 <p><Link to="/Images">Bilder</Link></p>
+                                
+                                
                             </nav>
                         </div>
 

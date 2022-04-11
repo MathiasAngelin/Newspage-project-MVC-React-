@@ -7,7 +7,10 @@ import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
 import {Articles} from './routes/Articles';
 import {Authors} from './routes/Authors';
+import {CreateArticle} from './routes/CreateArticle';
 import Images from './routes/Images';
+import { CreateAuthor } from './routes/CreateAuthor';
+
 
 
 const baseUrl = "Admin";
@@ -17,7 +20,9 @@ ReactDOM.render(
   <BrowserRouter basename={baseUrl}>
     <Routes>
       <Route path="/" element={<App />}>
-      <Route path="Articles" element={<Articles />} />
+      <Route path="Articles" element={<Articles />}/>
+      <Route path="CreateArticle" element={<CreateArticle />} />
+      <Route path="CreateAuthor" element={<CreateAuthor />} /> 
       <Route path="Authors" element={<Authors />} />
       <Route path="Images" element={<Images />} />
       </Route>
