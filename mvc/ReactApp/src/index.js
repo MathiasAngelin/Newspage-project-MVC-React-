@@ -10,6 +10,7 @@ import {Authors} from './routes/Authors';
 import {CreateArticle} from './routes/CreateArticle';
 import Images from './routes/Images';
 import { CreateAuthor } from './routes/CreateAuthor';
+import { EditAuthor} from './routes/EditAuthor';
 
 
 
@@ -23,8 +24,16 @@ ReactDOM.render(
       <Route path="Articles" element={<Articles />}/>
       <Route path="CreateArticle" element={<CreateArticle />} />
       <Route path="CreateAuthor" element={<CreateAuthor />} /> 
-      <Route path="Authors" element={<Authors />} />
+      <Route path="Authors" element={<Authors />}>
+        <Route path=":AuthorId" element ={<EditAuthor />} />
+        </Route>
       <Route path="Images" element={<Images />} />
+      <Route
+      path="*"
+      element={
+          <p>There's nothing here!</p>
+      }
+    />
       </Route>
     </Routes>
   </BrowserRouter>,

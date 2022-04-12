@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect,useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Outlet} from "react-router-dom";
+
 
 export function Authors() {
 const [authors, setAuthors] = useState([]);
@@ -42,7 +43,39 @@ function deleteAuthor(id){
         ))}
         
       </nav>
-      
+      <Outlet />
     </div>
   );
+}
+
+export function GetAuthor(number) {
+
+  const [myAuthors, GetAuthors] = useState([]);
+
+  useEffect(() => {
+    axios.get('https://localhost:7208/api/Authors')
+      .then((response) => {
+        let myAuthors = response.data;
+        GetAuthors(myAuthors)
+        console.log(myAuthors);
+      });
+  }, [])
+
+
+  if(myAuthors.length > 0){
+
+    for (let i = 0; i < myAuthors.length; i++){
+      
+      if(myAuthors[i].id === number)
+      {
+        
+        return myAuthors[i];
+      }
+      
+    }
+  }
+  else{
+    return <p>loading</p>
+  }
+    
 }
