@@ -30,13 +30,13 @@ function deleteAuthor(id){
           <p>{author.firstName} {author.lastName}</p>
 
           <Link
-            to={`/Authors/${author.firstName}`}
+            to={`/Authors/${author.id}`}
             key={author.id}
           >
-            <button className="editbutton button"><i className="fa-solid fa-pen"></i></button>
+            <button name="edit"className="editbutton button"><i className="fa-solid fa-pen"></i></button>
             
           </Link>
-          <button className="deletebutton button" onClick={() => deleteAuthor(author.id)}><i className="fa-regular fa-trash-can"></i></button> 
+          <button name="delete" className="deletebutton button" onClick={() => deleteAuthor(author.id)}><i className="fa-regular fa-trash-can"></i></button> 
           </div>
 
         ))}

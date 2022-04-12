@@ -244,10 +244,10 @@ form > *{
 
 
 
-.createNewArticle{
+/* .createNewArticle{
  
  
-}
+} */
 
 .createNewArticle form{
     display: flex;
@@ -261,7 +261,7 @@ form > *{
 .createNewArticle form input, textarea, select{
         height: 40px;
         flex: 0 0 200px;
-        margin-left: 50px;
+       
       
 }
 
@@ -273,13 +273,16 @@ form > *{
   
 }
 
-.createNewArticle form label > textarea, input, select{
+ .createNewArticle form label > textarea, input, select{
     /* width: 400px; */
-}
+} 
+
 
 .createNewArticle form :nth-child(-n+5) > input, select, textarea {
     /* margin-left: 100px; */
-}
+} 
+
+
 
 /*#endregion Article*/
 

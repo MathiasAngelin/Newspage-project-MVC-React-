@@ -36,10 +36,10 @@ function deleteArticle(id){
             to={`/Articles/${article.title}`}
             key={article.id}
           >
-           <button className="editbutton button"><i className="fa-solid fa-pen"></i></button>
+           <button name="edit" className="editbutton button"><i className="fa-solid fa-pen"></i></button>
             
             </Link>
-            <button className="deletebutton button" onClick={() => deleteArticle(article.id)}><i className="fa-regular fa-trash-can"></i></button> 
+            <button name="delete"  className="deletebutton button" onClick={() => deleteArticle(article.id)}><i className="fa-regular fa-trash-can"></i></button> 
             
             </div>
           
