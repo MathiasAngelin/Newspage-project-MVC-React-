@@ -19,7 +19,8 @@ useEffect(() => {
 function deleteArticle(id){
   fetch(`https://localhost:7208/api/Articles/${id}`, {
     method:'DELETE'
-  }).then(alert("Article deleted, please refresh page")) 
+  }).then(alert("Article deleted"))
+  window.location.reload();
     }
   
 
@@ -27,7 +28,7 @@ function deleteArticle(id){
     <div className="articles">
       <nav>
         <h1>Artiklar</h1>
-        <button className="button" id="createarticlebutton"><Link to="/CreateArticle">Skapa</Link></button>
+        <button className="button" id="createarticlebutton"><Link to="New">Skapa</Link></button>
         {articles.map((article) => (
           
            <div className="Articlelist">

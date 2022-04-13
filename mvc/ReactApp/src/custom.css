@@ -101,7 +101,7 @@ footer{
     padding: 15px;
 }
 
-.articles h1, .authors h1, .images h1, .createNewAuthor h1, .createNewArticle h1 {
+.articles h1, .authors h1, .images h1, .createNewAuthor h1, .createNewArticle h1, .createNewArticle h3 {
     border-bottom: solid;
     border-color: var(--primar);
     width: 100%;
@@ -243,11 +243,15 @@ form > *{
 /*#region Article*/
 
 
+#blocks{
+    border-bottom: solid;
+    border-color: var(--primar);
+    width: 100%;
+}
 
-/* .createNewArticle{
- 
- 
-} */
+#pinned{
+    width: 5%;
+}
 
 .createNewArticle form{
     display: flex;
@@ -273,14 +277,7 @@ form > *{
   
 }
 
- .createNewArticle form label > textarea, input, select{
-    /* width: 400px; */
-} 
 
-
-.createNewArticle form :nth-child(-n+5) > input, select, textarea {
-    /* margin-left: 100px; */
-} 
 
 
 

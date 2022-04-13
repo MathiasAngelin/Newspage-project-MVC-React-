@@ -22,8 +22,8 @@ ReactDOM.render(
     <Routes>
       <Route path="/" element={<App />}>
       <Route path="Articles" element={<Articles />}/>
-      <Route path="CreateArticle" element={<CreateArticle />} />
-      <Route path="CreateAuthor" element={<CreateAuthor />} /> 
+      <Route path="Articles/New" element={<CreateArticle />} />
+      <Route path="Authors/New" element={<CreateAuthor />} /> 
       <Route path="Authors" element={<Authors />}>
         <Route path=":AuthorId" element ={<EditAuthor />} />
         </Route>

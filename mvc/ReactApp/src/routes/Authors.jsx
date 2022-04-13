@@ -17,7 +17,8 @@ useEffect(() => {
 function deleteAuthor(id){
   fetch(`https://localhost:7208/api/Authors/${id}`, {
     method:'DELETE'
-  }).then(alert("Author deleted, please refresh page")) 
+  }).then(alert("Author deleted"))
+  window.location.reload();
   
 }
 
@@ -25,7 +26,7 @@ function deleteAuthor(id){
     <div className="authors">
       <nav>
       <h1>Journalister</h1>
-      <button className="button" id="createauthorbutton"><Link to="/CreateAuthor">Skapa</Link></button>
+      <button className="button" id="createauthorbutton"><Link to="New">Skapa</Link></button>
         {authors.map((author) => (
           <div className="Authorlist">
           <p>{author.firstName} {author.lastName}</p>

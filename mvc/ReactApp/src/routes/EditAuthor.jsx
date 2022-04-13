@@ -34,8 +34,8 @@ export function EditAuthor(){
                 })
             }
             await fetch(`https://localhost:7208/api/Authors/${author.id}`, requestOptions)
-           
-            .then(alert("Journalist updated, go back to journalist-page to view"))
+            .then(alert("Journalist updated"))
+            window.location.reload();
 
 
     };

@@ -26,7 +26,9 @@ export function CreateAuthor() {
                 })
             }
             await fetch("https://localhost:7208/api/Authors", requestOptions)
-            .then(alert("Journalist created, go back to journalist-page to view"))
+            .then(alert("Journalist Created, going back to Authorpage"))
+            window.location.href = "https://localhost:7208/Admin/Authors";
+
 
 
     };
@@ -93,4 +95,3 @@ export function CreateAuthor() {
     )
 
 }
-
