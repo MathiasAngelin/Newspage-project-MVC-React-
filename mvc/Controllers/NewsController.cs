@@ -39,12 +39,15 @@ namespace mvc.Controllers
         [HttpPost]
         public IActionResult NewsPage(CreateCommentDTO CommentDTO)
         {
-            if (CommentDTO.CommentedBy.Contains('@') && CommentDTO.CommentedBy.Contains('.') && CommentDTO.Value.Length > 0)
+            try
             {
                 Service.Services.ArticleService.Instance.AddComment(CommentDTO);
                 return Redirect(@"https://localhost:7208/");
             }
-            else return BadRequest();
+            catch (Exception ex)
+            {
+            return BadRequest(ex.Message);
+            }
         }
     }
 }

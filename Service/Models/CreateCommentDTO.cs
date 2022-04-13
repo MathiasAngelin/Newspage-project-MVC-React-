@@ -9,7 +9,7 @@ namespace Service.Models
 {
     public class CreateCommentDTO
     {
-        [Required]
+        [Required(ErrorMessage = "Comment is required")]
         public string Value { get; set; }
 
         [Display(Name = "Email address")]
