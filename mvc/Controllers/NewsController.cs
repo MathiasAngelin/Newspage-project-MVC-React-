@@ -31,6 +31,7 @@ namespace mvc.Controllers
         
         public IActionResult NewsPage(Guid articleid)
         {
+          
             var articleById = Service.Services.ArticleService.Instance.GetById(articleid);
             ViewData["articleId"] = articleById;
             return View();
@@ -42,7 +43,10 @@ namespace mvc.Controllers
             try
             {
                 Service.Services.ArticleService.Instance.AddComment(CommentDTO);
-                return Redirect(@"https://localhost:7208/");
+                var currentArticle = Service.Services.ArticleService.Instance.GetById(CommentDTO.ArticleId);
+                ViewData["articleId"] = currentArticle;
+                return View();
+
             }
             catch (Exception ex)
             {
