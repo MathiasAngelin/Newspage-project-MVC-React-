@@ -84,5 +84,5 @@ function reveal() {
     }
 }
 
-const box = document.querySelector('.box');
-const result = isInViewport(box);
+window.addEventListener("DOMContentLoaded", reveal);
+window.addEventListener("scroll", reveal);
