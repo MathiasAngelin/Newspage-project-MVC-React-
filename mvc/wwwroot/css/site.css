@@ -17,6 +17,7 @@ html {
     --nyhetskort: #FFFFFF;
     --timeauthor: #548052;
     font-family: Arial;
+
 }
 
 [data-theme="dark"] {
@@ -436,6 +437,10 @@ footer {
     margin-right: 10px;
 }
 
+#newsAuthorName2, .links2, #authorCreated2 {
+    color: var(--timeauthor);
+}
+
 .newsAuthor {
     display: flex;
     flex-wrap: wrap;
@@ -709,6 +714,10 @@ a, a:visited, a:hover, a:active {
         flex-wrap: wrap;
     }
 
+    .newsAuthor{
+       
+    }
+
     .AuthorPic, .links {
         visibility: hidden;
         display: none;
@@ -718,7 +727,7 @@ a, a:visited, a:hover, a:active {
         flex: none;
     }
 
-    #newsAuthorName {
+    #newsAuthorName, #newsAuthorName2 {
         flex-shrink: 1;
         margin: 0px 0px 0px 20px;
     }
@@ -732,6 +741,12 @@ a, a:visited, a:hover, a:active {
 
     .adsPic {
         width: 350px;
+    }
+
+    
+
+    #newsAuthorName {
+        border: none
     }
 }
 /*#endregion smallscreen*/
@@ -938,3 +953,144 @@ a, a:visited, a:hover, a:active {
 
 
 /*#endregion bigscreen*/
+
+
+.modal-content{
+    display:flex;
+    flex-wrap: wrap;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    min-width:300px;
+}
+
+    .modal-content > p {
+        padding: 4px;
+        width: 100%;
+        padding-left: 0%;
+        align-self: center;
+        justify-self: center;
+        text-align: center;
+    }
+
+    .modal-content > img {
+        
+        padding-left: 0%;
+        align-self: center;
+        justify-self: center;
+        text-align: center;
+    }
+
+.links2 {
+    margin-bottom: 3px;
+    padding: 4px;
+    width: 51%;
+    padding-left: 0%;
+    align-self: center;
+    justify-self: center;
+    text-align: center;
+    text-decoration: none;
+    border: solid;
+    border-color:black;
+    border-width: 1px;
+}
+
+#authorCreated2 {
+    width: 100%;
+    padding-left: 0%;
+    align-self: center;
+    justify-self: center;
+    text-align: center;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 300vw;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+    
+}
+
+.modal-content {
+    
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 20%;
+}
+
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 5px;
+    right: 10px;
+}
+
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+.modal-header {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+}
+
+.modal-body {
+    padding: 2px 16px;
+}
+
+.modal-footer {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+}
+
+.modal-content {
+    position: relative;
+    background-color: var(--nyhetskort);
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 40%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+@keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
+
+.scroll {
+    position: relative;
+    transform: translateY(150px);
+    opacity: 0;
+    transition: 1s all ease;
+}
+
+    .scroll.active {
+        transform: translateY(0);
+        opacity: 1;
+    }

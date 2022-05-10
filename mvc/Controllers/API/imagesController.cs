@@ -1,39 +1,30 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Service.Services;
 
 namespace mvc.Controllers.API
 {
-    [Route("api/[controller]")]
+    [Route("api/images")]
     [ApiController]
-    public class imagesController : ControllerBase
+    public class ImageController : ControllerBase
     {
-        [HttpGet]
-        public IActionResult ListAllImages()
-        {
-            try
-            {
-                var allPics = ImageService.Instance.GetAll();
-                return Ok(allPics);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
-        }
 
         [HttpPost]
-        public IActionResult CreateImage()
+        public IActionResult UploadImage()
         {
             try
             {
-                ImageService.Instance.Upload(Request.Form.Files[0]);
+                Service.Services.ImageService.Instance.Upload(Request.Form.Files[0]);
                 return Ok();
             }
             catch (Exception ex)
             {
                 return BadRequest(ex.Message);
             }
+        }
+        [HttpGet]
+        public IActionResult GetImages()
+        {
+            return Ok(Service.Services.ImageService.Instance.GetAll());
         }
     }
 }
