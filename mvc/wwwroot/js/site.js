@@ -51,25 +51,25 @@ function myHide() {
    
 }
 
-// Get the modal
+
+// VG-Delar
+
+//Modal
 var modal = document.getElementById("myModal");
-
-// Get the button that opens the modal
-var btn = document.getElementById("newsAuthorName");
-
-// Get the <span> element that closes the modal
+var cllickablePTag = document.getElementById("newsAuthorName");
 var span = document.getElementsByClassName("close")[0];
 
-// When the user clicks on the button, open the modal
-btn.onclick = function () {
+
+cllickablePTag.onclick = function () {
     modal.style.display = "block";
 }
 
-// When the user clicks on <span> (x), close the modal
+
 span.onclick = function () {
     modal.style.display = "none";
 }
 
+//Scroll-effekt på artikel
 function reveal() {
     var reveals = document.querySelectorAll(".scroll");
 
@@ -84,5 +84,5 @@ function reveal() {
     }
 }
 
-window.addEventListener("DOMContentLoaded", reveal);
-window.addEventListener("scroll", reveal);
+const box = document.querySelector('.box');
+const result = isInViewport(box);

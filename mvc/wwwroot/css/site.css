@@ -954,6 +954,7 @@ a, a:visited, a:hover, a:active {
 
 /*#endregion bigscreen*/
 
+/*#region modal*/
 
 .modal-content{
     display:flex;
@@ -1083,6 +1084,9 @@ a, a:visited, a:hover, a:active {
     }
 }
 
+/*#endregion modal*/
+
+/*#region scrolleffect*/
 .scroll {
     position: relative;
     transform: translateY(150px);
@@ -1094,3 +1098,5 @@ a, a:visited, a:hover, a:active {
         transform: translateY(0);
         opacity: 1;
     }
+
+/*#endregion scrolleffect*/
