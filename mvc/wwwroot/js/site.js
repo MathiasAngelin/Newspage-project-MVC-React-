@@ -84,4 +84,5 @@ function reveal() {
     }
 }
 
+window.addEventListener("DOMContentLoaded", reveal);
 window.addEventListener("scroll", reveal);
