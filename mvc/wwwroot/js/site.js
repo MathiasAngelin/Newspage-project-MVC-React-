@@ -74,11 +74,11 @@ function reveal() {
     var reveals = document.querySelectorAll(".scroll");
 
     for (var i = 0; i < reveals.length; i++) {
-        var windowHeight = window.innerHeight;
-        var elementTop = reveals[i].getBoundingClientRect().top;
-        var elementVisible = 150;
+        var wHeight = window.innerHeight;
+        var topVariable = reveals[i].getBoundingClientRect().top;
+        var showWhen = 20;
 
-        if (elementTop < windowHeight - elementVisible) {
+        if (topVariable < wHeight - showWhen) {
             reveals[i].classList.add("active");
         } 
     }

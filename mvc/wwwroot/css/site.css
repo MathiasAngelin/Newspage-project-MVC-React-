@@ -1089,9 +1089,8 @@ a, a:visited, a:hover, a:active {
 /*#region scrolleffect*/
 .scroll {
     position: relative;
-    transform: translateY(150px);
     opacity: 0;
-    transition: 1s all ease;
+    transition: 3.0s all ease;
 }
 
     .scroll.active {
